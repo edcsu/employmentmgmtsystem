@@ -1,6 +1,7 @@
 package com.skecorp.employmentmgmtsystem.controller;
 
 import com.skecorp.employmentmgmtsystem.dtos.EmployeeDto;
+import com.skecorp.employmentmgmtsystem.entities.Gender;
 import com.skecorp.employmentmgmtsystem.repositories.EmployeeRepository;
 import com.skecorp.employmentmgmtsystem.services.EmployeeService;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,7 +12,12 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Mono;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collections;
+import java.util.Date;
+import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,10 +41,14 @@ class EmployeeControllerIntegrationTests {
 
     @Test
     void saveEmployee() {
+        String dateInString = "7-Jun-2013";
         EmployeeDto employeeDto = new EmployeeDto();
         employeeDto.setFirstName("John");
         employeeDto.setLastName("Cena");
         employeeDto.setEmail("john@gmail.com");
+        employeeDto.setGender(Gender.Male);
+        employeeDto.setBirthDate(LocalDate.parse("1980-05-05"));
+        employeeDto.setStartDate(LocalDate.parse("2012-01-04"));
 
         webTestClient.post().uri("/api/employees")
                 .contentType(MediaType.APPLICATION_JSON)

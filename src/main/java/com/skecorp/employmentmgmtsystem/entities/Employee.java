@@ -7,7 +7,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -21,6 +21,6 @@ public class Employee {
     private String lastName;
     private String email;
     private Gender gender;
-    private LocalDateTime BirthDate;
-    private LocalDateTime StartDate;
+    private LocalDate BirthDate;
+    private LocalDate StartDate;
 }

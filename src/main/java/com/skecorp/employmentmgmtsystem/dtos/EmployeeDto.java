@@ -3,7 +3,7 @@ package com.skecorp.employmentmgmtsystem.dtos;
 import com.skecorp.employmentmgmtsystem.entities.Gender;
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -16,6 +16,6 @@ public class EmployeeDto {
     private String lastName;
     private String email;
     private Gender gender;
-    private LocalDateTime BirthDate;
-    private LocalDateTime StartDate;
+    private LocalDate BirthDate;
+    private LocalDate StartDate;
 }
